@@ -104,7 +104,7 @@ public class Particle {
     }
 
     // Free fall of particle procedure
-    public void freeFall(Map<Key, Set<Integer>> gridMap, Particle[] pars) {
+    public void freeFall(Map<Key, Set<Integer>> gridMap, Particle[] pars, Boundary[] bounds) {
         // Build potential contact particle set
         Set<Integer> parCont = contParList(gridMap, pars, 0.0);
         // Free fall result of particle
@@ -114,7 +114,7 @@ public class Particle {
         } else {
             // Determine first base particle
             FirstBaseParticleInfo firstBase = contOneBase(pars, parCont);
-            rollingOneBase(gridMap, pars, firstBase);
+            rollingOneBase(gridMap, pars, firstBase, bounds);
         }
     }
 
